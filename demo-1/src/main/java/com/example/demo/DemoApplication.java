@@ -13,12 +13,16 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		
 		  ConfigurableApplicationContext ctx =
-		  SpringApplication.run(DemoApplication.class, args); Department department =
-		  ctx.getBean(Department.class);
+		  SpringApplication.run(DemoApplication.class, args); 
+		  Department department = ctx.getBean(Department.class);
 		  
-		  IEmployee empl = department.getEmpl(); Id id2 = empl.getId(); empl.getType();
+		  IEmployee empl = department.getEmpl(); 
+		  Id id2 = empl.getId(); 
+		  int id3 = id2.getId();
+		  empl.getType();
 		  
-		  IEmployee empl2 = department.getEmpl(); Id id = empl2.getId();
+		  IEmployee empl2 = department.getEmpl(); 
+		  Id id = empl2.getId();
 		  
 		  LOGGER.info("Department name: " + department.getName());
 		 

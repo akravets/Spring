@@ -20,10 +20,11 @@ public class EmployeeTest {
 		 *  @Mock annotation as we did above
 		 */
 		//IEmployee developerMock = mock(Developer.class);
-		when(developerMock.getType()).thenReturn(IEmployee.Type.SALARY);
+		when(developerMock.getType()).thenReturn(IEmployee.Type.CONTRACT);
 		
 		Developer developer = new Developer();
 		
+		System.out.println(developer.getId());
 		assertEquals(developerMock.getType(), developer.getType());
 		
 	}
