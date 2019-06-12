@@ -245,3 +245,6 @@ private String jdbcUrl;
 
 
 More info https://www.baeldung.com/properties-with-spring
+
+# Spring Actuator
+Actuator is mainly used to expose operational information about the running application – health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it.
