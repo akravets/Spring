@@ -248,3 +248,12 @@ More info https://www.baeldung.com/properties-with-spring
 
 # Spring Actuator
 Actuator is mainly used to expose operational information about the running application – health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it.
+
+## Loading changes to application without server restart
+Add dependency on spring-boot-devtools:
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+</dependency>
+</dependency>
