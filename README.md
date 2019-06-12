@@ -252,8 +252,9 @@ Actuator is mainly used to expose operational information about the running appl
 ## Loading changes to application without server restart
 Add dependency on spring-boot-devtools:
 
+```
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-devtools</artifactId>
 </dependency>
-</dependency>
+```
