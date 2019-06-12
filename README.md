@@ -1,6 +1,6 @@
 # Spring
 
-Spring uses annotations to build dependencies between Classes.
+Spring uses annotations to build dependencies between Classes. [https://www.baeldung.com/spring-dependency-injection](This article) explains different DI approaches in Spring well.
 
 Main application get Person bean
 
