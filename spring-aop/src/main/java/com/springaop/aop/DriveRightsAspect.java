@@ -12,9 +12,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DriveRightsAspect {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    // weaving (on which resources: classes, packages,etc. to apply this middleware 
     @Before("execution(* com.example.helloworld.Person.getCar(..))")
     public void hasRights(JoinPoint jPoint) {
+        // advice: what to do during intersept
         Person person = (Person) jPoint.getTarget();
         if (!person.isCanDriver()) {
             logger.info(person.getName() + " cannot drive a car");

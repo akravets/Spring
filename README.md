@@ -258,3 +258,68 @@ Add dependency on spring-boot-devtools:
 	<artifactId>spring-boot-devtools</artifactId>
 </dependency>
 ```
+
+# Spring AOP
+Can be thought of as middleware in execution of application. [See project spring-aop project](https://github.com/akravets/Spring/tree/master/spring-aop) for example.
+
+**@Before** annotation is used to resolve access control on method execution fo example.
+**@After** called after method is called, can be used for logging result of execution for example
+**@AfterReturning** called after method is called, and also returns return value of execution
+**@AfterThrowing** called if method threw an exception
+**@Around** allows to execute code before and after method is called, so in essence it's like pause for method execution
+
+For all these methods we need to keep defining weavers:
+```@Before("execution(* com.example.helloworld.Person.getCar(..))")```
+
+This presents problems for big projects where weavers need to be repeated. To solve this issue we can use @Pointcut to define one place for all our weavers:
+
+```
+package com.example.helloworld.confg;
+
+public class CommonJoinPointConfig{
+	@Pointcut("execution(* com.example.helloworld.Person.getCar(..))")
+	public void car(){}
+}
+```
+And to use this @Pointcut we would use car() method's qualifid name:
+
+```
+@Before("com.example.helloworld.confg.CommonJoinPointConfig")
+```
+
+# Database Support
+Adding following dependencies will add JDBC support to Spring applicaton:
+
+```
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+```
+
+To enable h2 database we add ``` spring.h2.console.enabled=true ``` to application.properties file.
+
+In resources folder adding ```data.sql``` database schema file will execute it when Spring application has started.
