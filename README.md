@@ -261,3 +261,28 @@ Add dependency on spring-boot-devtools:
 
 # Spring AOP
 Can be thought of as middleware in execution of application. [See project spring-aop project](https://github.com/akravets/Spring/tree/master/spring-aop) for example.
+
+**@Before** annotation is used to resolve access control on method execution fo example.
+**@After** called after method is called, can be used for logging result of execution for example
+**@AfterReturning** called after method is called, and also returns return value of execution
+**@AfterThrowing** called if method threw an exception
+**@Around** allows to execute code before and after method is called, so in essence it's like pause for method execution
+
+For all these methods we need to keep defining weavers:
+```@Before("execution(* com.example.helloworld.Person.getCar(..))")```
+
+This presents problems for big projects where weavers need to be repeated. To solve this issue we can use @Pointcut to define one place for all our weavers:
+
+```
+package com.example.helloworld.confg;
+
+public class CommonJoinPointConfig{
+	@Pointcut("execution(* com.example.helloworld.Person.getCar(..))")
+	public void car(){}
+}
+```
+And to use this @Pointcut we would use car() method's qualifid name:
+
+```
+@Before("com.example.helloworld.confg.CommonJoinPointConfig")
+```
