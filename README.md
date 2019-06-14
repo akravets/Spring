@@ -258,3 +258,6 @@ Add dependency on spring-boot-devtools:
 	<artifactId>spring-boot-devtools</artifactId>
 </dependency>
 ```
+
+# Spring AOP
+Can be thought of as middleware in execution of application. [See project spring-aop project](https://github.com/akravets/Spring/tree/master/spring-aop) for example.
