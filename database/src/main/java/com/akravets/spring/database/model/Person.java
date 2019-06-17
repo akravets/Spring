@@ -8,7 +8,10 @@ public class Person {
     private String location;
     private Date birthday;
 
-
+    /*
+        whenver we use BeanPropertyRowMapper (PersonDAO) we need to make sure our model class (Person)
+        has no args constructor, otherwise during run of application we would ge exception.
+    */
     public Person(){}
 
     public Person(int id, String name, String location, Date birthday) {
