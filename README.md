@@ -1,5 +1,19 @@
 # Spring
 
+## Auto-Configuration
+Spring uses Auto-Configuration mechanism to preconfigure classes that are on application's classpath. For example, if JDBC driver is put on classpath (using maven dependency, for example) then Spring will automatically configure JDBC template for application and make it avaiable to be used with @Autowried.
+
+You need to opt-in to auto-configuration by adding the @EnableAutoConfiguration or @SpringBootApplication annotations to one of your @Configuration classes. You should only use one or another, not both.
+
+Auto-configuration is non-invasive. At any point, you can start to define your own configuration to replace specific parts of the auto-configuration. For example, if you add your own DataSource bean, the default embedded database support backs away.
+
+If you need to find out what auto-configuration is currently being applied, and why, start your application with the --debug switch. Doing so enables debug logs for a selection of core loggers and logs a conditions report to the console.
+
+You can exclude particular class from auto configuration if you still want to participate in it except one class
+```
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+```
+
 ## CommandLineRunner and ApplicationRunner
 Spring Boot provides two interfaces, CommandLineRunner and ApplicationRunner, to run specific pieces of code when an application is fully started. These interfaces get called just before run() once SpringApplication completes.
 
