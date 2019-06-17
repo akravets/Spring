@@ -6,14 +6,13 @@
 
 create table person
 (
-    id INTEGER NOT NULL AUTO_INCREMENT,
+    id INTEGER NOT NULL,
     name VARCHAR(255) NOT NULL,
     location VARCHAR(255),
     birthday TIMESTAMP NOT NULL,
     PRIMARY KEY(id)
 );
 
-INSERT into person (name, location, birthday) VALUES('Alex', 'NJ', sysdate());
-INSERT into person (name, location, birthday) VALUES('Bob', 'NY', sysdate());
-INSERT into person (name, location, birthday) VALUES('Mike', 'TX', sysdate());
-INSERT into person (name, location, birthday) VALUES('Jane', 'PA', sysdate());
+INSERT into person (id, name, location, birthday) VALUES(1,'Alex', 'NJ', sysdate());
+INSERT into person (id, name, location, birthday) VALUES(2,'Bob', 'NY', sysdate());
+INSERT into person (id, name, location, birthday) VALUES(3,'Mike', 'TX', sysdate());
