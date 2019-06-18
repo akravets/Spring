@@ -23,6 +23,8 @@ public class DemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info(dao.findAll().toString());
+		logger.info(dao.findByLocation("NJ").toString());
+
 	}
 
 }
