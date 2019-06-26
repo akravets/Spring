@@ -25,11 +25,11 @@ public class PersonDAO {
         @Override
         public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
             Person person = new Person();
-            person.setId(rs.getInt("id");
+            person.setId(-1);
             person.setName(rs.getString("name"));
             person.setLocation(rs.getString("location"));
             person.setBirthday(rs.getTimestamp("birthday"));
-            return null;
+            return person;
         }
 
     }
@@ -43,7 +43,8 @@ public class PersonDAO {
         // (Person)
         // has no args constructor, otherwise during run of application we would ge
         // exception.
-        return template.query("select * from person", new BeanPropertyRowMapper<Person>(Person.class));
+        //return template.query("select * from person", new BeanPropertyRowMapper<Person>(Person.class));
+        return template.query("select * from person", new PersonRowMapper());
     }
 
     public List<Map<String, Object>> findByLocation(String location) {
