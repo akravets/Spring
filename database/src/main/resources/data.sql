@@ -14,5 +14,5 @@ create table person
 );
 
 INSERT into person (id, name, location, birthday) VALUES(1,'Alex', 'NJ', sysdate());
-INSERT into person (id, name, location, birthday) VALUES(2,'Bob', 'NY', sysdate());
+INSERT into person (id, name, location, birthday) VALUES(2,'Bob', 'NJ', sysdate());
 INSERT into person (id, name, location, birthday) VALUES(3,'Mike', 'TX', sysdate());
