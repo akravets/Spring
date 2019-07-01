@@ -373,3 +373,8 @@ Adding following dependencies will add JDBC support to Spring applicaton:
 To enable h2 database we add ``` spring.h2.console.enabled=true ``` to application.properties file.
 
 In resources folder adding ```data.sql``` database schema file will execute it when Spring application has started.
+
+# JPA
+Java Persistance API maps Java objects directly to database tables. Instead of creating SQL queries and mapping results to Java objects, JPA maps Java objects directly to database tables so that queries can be executed directly.
+
+
