@@ -440,7 +440,7 @@ public class Person {
     private String location;
     private Date birthday;
 
-    // We need to have no-args constructor when using JPA
+    // We need to have no-args constructor when using JPA with in-memory database like HSQL
     public Person(){}
 
     public Person(int id, String name, String location, Date birthday) {
