@@ -378,8 +378,7 @@ In resources folder adding ```data.sql``` database schema file will execute it w
 Navigate to http://localhost:8999/h2-console to access the console
 
 ![h2Console](https://raw.githubusercontent.com/akravets/Spring/master/database-jpa/jpa/src/main/resources/h2console.png?token=AADXMAQVHERVEGUPTYGNWJ25DOA6W)
-
-### Note JDBC url, this syntax is needed when using Spring Boot.
+#### Note JDBC url, this syntax is needed when using Spring Boot.
 [Person](https://github.com/akravets/Spring/blob/master/database/src/main/java/com/akravets/spring/database/model/Person.java) class is the model of the database table. In order to communicate with the database we are using [PersonDAO](https://github.com/akravets/Spring/blob/master/database/src/main/java/com/akravets/spring/database/repository/PersonDAO.java) class that is used to query the database.
 
 # Database Support (JPA)
