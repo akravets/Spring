@@ -337,7 +337,7 @@ And to use this @Pointcut we would use car() method's qualifid name:
 @Before("com.example.helloworld.confg.CommonJoinPointConfig")
 ```
 
-# Database Support
+# Database Support (JDBC)
 Adding following dependencies will add JDBC support to Spring applicaton:
 
 ```
@@ -374,7 +374,88 @@ To enable h2 database we add ``` spring.h2.console.enabled=true ``` to applicati
 
 In resources folder adding ```data.sql``` database schema file will execute it when Spring application has started.
 
-# JPA
+[Person](https://github.com/akravets/Spring/blob/master/database/src/main/java/com/akravets/spring/database/model/Person.java) class is the model of the database table. In order to communicate with the database we are using [PersonDAO](https://github.com/akravets/Spring/blob/master/database/src/main/java/com/akravets/spring/database/repository/PersonDAO.java) class that is used to query the database.
+
+# Database Support (JPA)
 Java Persistance API maps Java objects directly to database tables. Instead of creating SQL queries and mapping results to Java objects, JPA maps Java objects directly to database tables so that queries can be executed directly.
 
+In Spring JDBC we had insert SQL query explicitly
 
+```return template.query("select * from person where id=?", new Object[]{id});```
+
+This is fine for small queries, but more complex queries are difficult to express in this syntax. Using JPA we can map objects directly to database tables:
+
+```
+@Entity // flags that this class maps to db table
+@Table(name="person") // if name of class is different from db table name
+public class Person {
+    @Id // primary key
+    @GeneratedValue // value should generated
+    private int id;
+    private String name;
+    private String location;
+    private Date birthday;
+
+    // We need to have no-args constructor when using JPA
+    public Person(){}
+
+    public Person(int id, String name, String location, Date birthday) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.birthday = birthday;
+    }
+
+    // A constuctor for our class where Id is generated
+    public Person(String name, String location, Date birthday) {
+        super();
+        this.name = name;
+        this.location = location;
+        this.birthday = birthday;
+    }
+```
+
+An we can execute our query as
+
+```
+@PersistenceContext
+EntityManager entityManager;
+
+public Person findById(int id){
+        return entityManager.find(Person.class, id);
+    }
+```
+
+Our Person class changes as follows
+
+```
+@Entity // flags that this class maps to db table
+@Table(name="person") // if name of class is different from db table name
+public class Person {
+    @Id // primary key
+    @GeneratedValue // value should generated
+    private int id;
+    private String name;
+    private String location;
+    private Date birthday;
+
+    // We need to have no-args constructor when using JPA
+    public Person(){}
+
+    public Person(int id, String name, String location, Date birthday) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.birthday = birthday;
+    }
+
+    // A constuctor for our class where Id is generated
+    public Person(String name, String location, Date birthday) {
+        super();
+        this.name = name;
+        this.location = location;
+        this.birthday = birthday;
+    }
+```
