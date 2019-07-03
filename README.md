@@ -377,7 +377,7 @@ In resources folder adding ```data.sql``` database schema file will execute it w
 ## Accessing H2 console
 Navigate to http://localhost:8999/h2-console to access the console
 
-![h2Console](https://raw.githubusercontent.com/akravets/Spring/master/database-jpa/jpa/src/main/resources/h2console.png?token=AADXMAQVHERVEGUPTYGNWJ25DOA6W)
+![image](https://github.com/akravets/Spring/blob/master/database-jpa/jpa/src/main/resources/h2console.png)
 #### Note JDBC url, this syntax is needed when using Spring Boot.
 [Person](https://github.com/akravets/Spring/blob/master/database/src/main/java/com/akravets/spring/database/model/Person.java) class is the model of the database table. In order to communicate with the database we are using [PersonDAO](https://github.com/akravets/Spring/blob/master/database/src/main/java/com/akravets/spring/database/repository/PersonDAO.java) class that is used to query the database.
 
@@ -462,5 +462,28 @@ public class Person {
         this.name = name;
         this.location = location;
         this.birthday = birthday;
+    }
+```
+
+JPA has the methods to insert and update records. The difference how database will be updated depends on data that is POJO being passed (https://github.com/akravets/Spring/blob/master/database-jpa/jpa/src/main/java/com/akravets/spring/database/jpa/repository/PersonRepository.java)
+
+```
+
+    /**
+     * Insert new record
+     * @param person {@link Person} to be added
+     * @return
+     */
+    public Person insert(Person person){
+        return entityManager.merge(person);
+    }
+
+    /**
+     * Update record
+     * @param person {@link Person} to be updated
+     * @return
+     */
+    public Person update(Person person){
+        return entityManager.merge(person);
     }
 ```
