@@ -34,6 +34,9 @@ public class JPAApplication implements CommandLineRunner {
 		dao.insert(new Person("Bobzas", "PAsq", new Date()));
 
 		dao.update(new Person(1001,"Alexis", "NJ", new Date()));
+		logger.info(dao.findById(1001).toString());
+		dao.delete(1001);
+		logger.info(dao.findById(1001) == null ? "not found" : "found");
 		
 	}
 }

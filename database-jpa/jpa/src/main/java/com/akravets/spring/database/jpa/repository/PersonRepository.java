@@ -35,4 +35,9 @@ public class PersonRepository{
     public Person update(Person person){
         return entityManager.merge(person);
     }
+
+    public void delete(int id){
+        Person p = findById(id);
+        entityManager.remove(p);
+    }
 }
