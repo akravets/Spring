@@ -487,3 +487,6 @@ JPA has the methods to insert and update records. The difference how database wi
         return entityManager.merge(person);
     }
 ```
+
+# SpringMVC
+In Spring MVC , the core dispatcher component is the DispatcherServlet, which act as the front-controller (design pattern). Every web request has to go through this DispatcherServlet, and the DispatcherServlet will dispatch the web request to suitable handlers. 
