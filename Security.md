@@ -8,6 +8,8 @@ AuthenticationManager manages authentication in Spring app
 
 AuthenticationProvider performs authentication
 
+https://www.youtube.com/watch?v=caCJAJC41Rk&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE&index=6
+
 # Authorization
 Are you allowed to do this?
 
