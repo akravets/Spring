@@ -1,10 +1,12 @@
-# Authentication)
+# Authentication
 Who are you?
 What do you want to do?
 
 Principal - person identified through authentication
 
 AuthenticationManager manages authentication in Spring app
+
+AuthenticationProvider performs authentication
 
 # Authorization
 Are you allowed to do this?
