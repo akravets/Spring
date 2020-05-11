@@ -10,6 +10,8 @@ AuthenticationProvider performs authentication
 
 https://www.youtube.com/watch?v=caCJAJC41Rk&list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE&index=6
 
+The SecurityContext and SecurityContextHolder are two fundamental classes of Spring Security. The SecurityContext is used to store the details of the currently authenticated user, also known as a principle. So, if you have to get the username or any other user details, you need to get this SecurityContext first. The SecurityContextHolder is a helper class, which provide access to the security context. By default, it uses a ThreadLocal object to store security context, which means that the security context is always available to methods in the same thread of execution, even if you don't pass the SecurityContext object around. Don't worry about the ThreadLocal memory leak in web application though, Spring Security takes care of cleaning ThreadLocal.
+
 # Authorization
 Are you allowed to do this?
 
