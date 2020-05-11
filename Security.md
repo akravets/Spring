@@ -14,7 +14,7 @@ Are you allowed to do this?
 By extending WebSecurityConfigurerAdapter we can configure rules for accessing specific endpoints
 
 # Filters
-Acts upon routes to allow for the user to execute them
+Authorizes execution of web methods in web based Spring Application
 
 # Cross-cutting concerns
 
