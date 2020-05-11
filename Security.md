@@ -1,4 +1,4 @@
-# Authentication
+# Authentication)
 Who are you?
 What do you want to do?
 
@@ -9,9 +9,7 @@ AuthenticationManager manages authentication in Spring app
 # Authorization
 Are you allowed to do this?
 
-Role -> Granted authority (read users)
-     |
-     |_> Granted authority (add users)
+![roles](https://github.com/akravets/Spring/blob/master/roles.png)
      
 By extending WebSecurityConfigurerAdapter we can configure rules for accessing specific endpoints
 
