@@ -1,7 +1,8 @@
 # Spring
 
 ## Articles
-http://websystique.com/spring/spring-dependency-injection-annotation-beans-auto-wiring-using-autowired-qualifier-resource-annotations-configuration/
+ - http://websystique.com/spring/spring-dependency-injection-annotation-beans-auto-wiring-using-autowired-qualifier-resource-annotations-configuration/
+ - [@ModelAttribute explanation and discussion](https://stackoverflow.com/questions/3423262/what-is-modelattribute-in-spring-mvc)
 
 ## Auto-Configuration
 Spring uses Auto-Configuration mechanism to preconfigure classes that are on application's classpath. For example, if JDBC driver is put on classpath (using maven dependency, for example) then Spring will automatically configure JDBC template for application and make it avaiable to be used with @Autowried.
